@@ -1,18 +1,43 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToMany } from 'typeorm';
-import { Permission } from '../../permission/entities/permission.entity';
-import { Menu } from '../../menu/entities/menu.entity';
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  JoinTable,
+  ManyToMany,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 
-@Entity()
+import { Permission } from '../../permission/entities/permission.entity';
+// import { Menu } from '../../menu/entities/menu.entity';
+// import { User } from 'src/modules/user/entities/user.entity';
+
+@Entity('role')
 export class Role {
-  @PrimaryGeneratedColumn()
+  @PrimaryGeneratedColumn({
+    comment: '角色id',
+  })
   id: number;
 
-  @Column()
+  @Column({
+    comment: '角色名称',
+    length: 20,
+  })
   name: string;
 
-  @ManyToMany(() => Permission)
-  permissions: Permission[];
+  @CreateDateColumn({
+    comment: '创建时间',
+  })
+  createTime: Date;
 
-  @ManyToMany(() => Menu)
-  menus: Menu[];
+  @UpdateDateColumn({
+    comment: '更新时间',
+  })
+  updateTime: Date;
+
+  @ManyToMany(() => Permission)
+  @JoinTable({
+    name: 'role_permission_relation',
+  })
+  permissions: Permission[];
 }
