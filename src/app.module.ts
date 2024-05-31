@@ -7,6 +7,7 @@ import { RoleModule } from './modules/role/role.module';
 import { PermissionModule } from './modules/permission/permission.module';
 import { MenuModule } from './modules/menu/menu.module';
 import { DepartmentModule } from './modules/department/department.module';
+import { SeedModule } from './modules/seed/seed.module';
 
 @Module({
   imports: [
@@ -26,6 +27,7 @@ import { DepartmentModule } from './modules/department/department.module';
     PermissionModule,
     MenuModule,
     DepartmentModule,
+    SeedModule,
   ],
   controllers: [AppController],
   providers: [AppService],
