@@ -6,6 +6,7 @@ import { UserModule } from './modules/user/user.module';
 import { RoleModule } from './modules/role/role.module';
 import { PermissionModule } from './modules/permission/permission.module';
 import { MenuModule } from './modules/menu/menu.module';
+import { DepartmentModule } from './modules/department/department.module';
 
 @Module({
   imports: [
@@ -24,6 +25,7 @@ import { MenuModule } from './modules/menu/menu.module';
     RoleModule,
     PermissionModule,
     MenuModule,
+    DepartmentModule,
   ],
   controllers: [AppController],
   providers: [AppService],
